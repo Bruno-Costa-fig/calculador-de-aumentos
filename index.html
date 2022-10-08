@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculador de aumentos</title>
+</head>
+<body>
+  <div class="container">
+    <div class="form">
+      <label for="">
+        Salário atual R$:
+        <input type="number" id="salario" >
+      </label>
+      <select id="tipoFuncionario">
+        <option value="1">Professor</option>
+        <option value="2">Secretário</option>
+        <option value="3">Assistente</option>
+        <option value="4">Diretor</option>
+      </select>
+      <button id="btn">Calcular</button>
+    </div>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    /* 
+      | Código  | Cargo | Aumento |
+      | ------- | ----- | ------- |
+      | 1 | Professor | 40% |
+      | 2 | Secretário | 30% |
+      | 3 | Assistente | 20% |
+      | 4 | Diretor | 10% |
+    */
+
+    var salario = document.getElementById("salario")
+    var select = document.getElementById("tipoFuncionario")
+
+    var tipoFuncionario = select.value;
+    var salarioNovo;
+
+    select.addEventListener("change", function () {
+      tipoFuncionario = select.value
+    })
+
+
+    var resultado = document.getElementById("resultado")
+
+    var btn = document.getElementById("btn")
+
+    btn.addEventListener("click", function () {
+      switch(tipoFuncionario){
+        case "1":
+          salarioNovo = salario.value * 1.4
+          resultado.innerHTML = "<p>A porcentagem do aumento é de 40%. O salário novo será de <b>" + salarioNovo + "</b></p>"
+          break
+        case "2":
+          debugger
+          salarioNovo = salario.value * 1.3
+          resultado.innerHTML = "<p>A porcentagem do aumento é de 30%. O salário novo será de <b>R$" + salarioNovo + "</b></p>"
+          break
+        case "3":
+          salarioNovo = salario.value * 1.2
+          resultado.innerHTML = "<p>A porcentagem do aumento é de 20%. O salário novo será de <b>R$" + " " + salarioNovo + "</b></p>"
+          break
+        case "4":
+          salarioNovo = salario.value * 1.1
+          resultado.innerHTML = `<p>A porcentagem do aumento é de 10%. O salário novo será de <b>R$ ${salarioNovo}</b></p>`
+          break
+      }
+
+      // resultado.innerText = "O salário atual é de " + salario.value
+    })
+
+
+
+  </script>
+</body>
+</html>

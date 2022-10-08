@@ -1,0 +1,17 @@
+    var salario = document.getElementById("salario")
+    var select = document.getElementById("tipoFuncionario")
+    var tipoFuncionario;
+
+    select.addEventListener("change", function () {
+      tipoFuncionario = Number.parseInt(select.value)
+    })
+
+    var resultado = document.getElementById("resultado")
+    var btn = document.getElementById("btn")
+
+
+    let salarioNovo;
+
+    btn.addEventListener("click", function () {
+      // resultado vai aqui
+    })
